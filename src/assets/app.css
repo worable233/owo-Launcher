@@ -1,0 +1,137 @@
+/* 主题相关的变量 */
+:root {
+    /* >浅色主题颜色 */
+    --primary: rgb(17, 112, 207);
+    /* >深色主题颜色 */
+    --primary-dark: color-mix(in srgb, var(--primary) 10%, #000000 90%);
+    /* >背景颜色 */
+    --bg: color-mix(in srgb, var(--primary) 1%, #f7f7f7 99%);
+    /* >边框颜色 */
+    --border: color-mix(in srgb, var(--primary) 1%, #ffffff 99%);
+    /* 高亮背景颜色 */
+    --high-light-bg: color-mix(in srgb, var(--primary) 20%, var(--bg) 100%);
+    /* >普通边框颜色 */
+    --normal: color-mix(in srgb, var(--primary) 1%, #E8E8ED 99%);   
+    /* >普通文本颜色 */
+    --normal-text: color-mix(in srgb, var(--primary) 1%, #1D1D1F 99%);
+    /* 不重要颜色 */
+    --unimportant: #adadad;
+    /* >主题圆角 */
+    --border-radius: 4px;
+    /* >正文字体大小 */
+    --font-size: 1rem;
+    /* >1级标题字体大小 */
+    --font-size-1: 2rem;
+    /* >2级标题字体大小 */
+    --font-size-2: 1.5rem;
+    /* >3级标题字体大小 */
+    --font-size-3: 1.2rem;
+    /* >4级标题字体大小 */
+    --font-size-4: 0.8rem;
+}
+
+/* 动画相关的变量 */
+:root {
+    /* 动画时长 */
+    --duration: 0.2s;
+    
+    /* 通用过渡函数 */  
+    --easy: ease;
+    /* 出现消失过渡函数 */
+    --in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    /* 点击过渡函数 */
+    --eout-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* 页面过渡函数 */
+    --quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+/* 全局样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+h1 {
+  font-size: var(--font-size-1);
+}
+h2 {
+  font-size: var(--font-size-2);
+}
+h3 {
+  font-size: var(--font-size-3);
+}
+h4 {
+  font-size: var(--font-size-4);
+}
+
+/* 按钮样式 */
+.button {
+    margin: 0 auto;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: var(--normal-text);
+    border: 2px solid var(--normal);
+    transition: transform var(--duration) var(--in-out), background-color var(--duration) var(--in-out);
+    background: var(--bg);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+.button span {
+    text-align: center;
+    line-height: 1.2rem;
+    display: block;
+    font-size: var(--font-size);
+}
+.button p {
+    text-align: center;
+    color: var(--unimportant);
+    font-size: var(--font-size-4);
+    font-weight: normal;
+}
+.button:hover {
+    background-color: var(--high-light-bg);
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+.button:active {
+    transform: scale(0.95); /* 按下时缩小到 95% */
+}
+
+/* 高亮样式 */
+.high-light {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+.high-light:hover {
+    background-color: var(--high-light-bg);
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+/* 标题样式 */
+.title {
+  display: inline-block;
+  filter: url(#text-sticker-stroke) drop-shadow(0 6px 18px rgba(0, 0, 0, 0.2));
+  transform: scale(1);
+  transition: transform var(--duration)  var(--in-out);
+  color: var(--normal-text);
+}
+.title:hover {
+  transform: scale(1.02);
+}
+/* 头像样式 */
+.avatar {
+  background: var(--bg);
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: transform var(--duration) var(--in-out), background-color var(--duration) var(--in-out);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  border:2px solid var(--border);
+}
+.avatar:active {
+    transform: scale(0.95); /* 按下时缩小到 95% */
+}
