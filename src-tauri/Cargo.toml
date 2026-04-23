@@ -1,3 +1,4 @@
+# RUST 配置
 [package]
 name = "owo-launcher"
 version = "0.1.0"
@@ -5,12 +6,13 @@ description = "A Tauri App"
 authors = ["you"]
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+# 在 https://doc.rust-lang.org/cargo/reference/manifest.html 查看更多键及其定义
+
 
 [lib]
-# The `_lib` suffix may seem redundant but it is necessary
-# to make the lib name unique and wouldn't conflict with the bin name.
-# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+# `_lib` 后缀看起来可能是多余的，但它是必要的
+# 用于确保库名称唯一，并且不会与二进制文件名称冲突。
+# 这似乎仅在 Windows 上存在问题，参见 https://github.com/rust-lang/cargo/issues/8519
 name = "owo_launcher_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
@@ -22,4 +24,10 @@ tauri = { version = "2", features = [] }
 tauri-plugin-opener = "2"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+
+# lighty-launcher 依赖
+lighty-launcher = "0.8.6"
+# 启用关键 features，或者全部启用就是 features = ["full"]
+tokio = { version = "1", features = ["full"] }
+anyhow = "1.0"
 
