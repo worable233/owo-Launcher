@@ -63,17 +63,17 @@ owo-Launcher/
 
 ### 安装依赖
 ```bash
-pnpm install
+npm install
 ```
 
 ### 启动开发服务器
 ```bash
-pnpm tauri dev
+npm run tauri dev
 ```
 
 ### 构建生产版本
 ```bash
-pnpm tauri build
+npm run tauri build
 ```
 
 ## 📄 许可证
