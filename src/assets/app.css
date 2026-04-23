@@ -121,17 +121,15 @@ h4 {
   transform: scale(1.02);
 }
 /* 头像样式 */
-.avatar {
-  background: var(--bg);
+/* .avatar {
+  background-size: 100%;
   display: block;
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
   border-radius: 50%;
   transform: scale(1);
   transition: transform var(--duration) var(--in-out), background-color var(--duration) var(--in-out);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
   border:2px solid var(--border);
-}
-.avatar:active {
-    transform: scale(0.95); /* 按下时缩小到 95% */
-}
+} */
