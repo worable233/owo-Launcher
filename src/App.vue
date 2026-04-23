@@ -8,10 +8,10 @@ Title.value = "Hello, " + name.value;
 </script>
 
 <template>
-<Home />
+    <main>
+        <Home />
+    </main>
 </template>
 
 <style scoped>
-
-
 </style>
