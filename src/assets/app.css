@@ -112,9 +112,16 @@ h4 {
 }
 
 /* 标题样式 */
+.head {
+  position: relative; /* 相对定位，用于标题的绝对定位 */
+  padding: var(--padding);
+  display: flex;
+  align-items: center;
+}
 .title {
+  margin-left: 0.8rem;
   display: inline-block;
-  filter: url(#text-sticker-stroke) drop-shadow(0 6px 18px rgba(0, 0, 0, 0.2));
+  filter: url(#text-sticker-stroke) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
   transform: scale(1);
   transition: transform var(--duration)  var(--in-out);
   color: var(--normal-text);
@@ -144,6 +151,11 @@ h4 {
   background-color: var(--normal);
   border-radius: var(--border-radius);
   padding: var(--padding);
+  display: flex;
+  align-items: center;
+}
+.bottom-nav.scroll-wrapper {
+  background-color: transparent;
 }
 .bottom-nav-item {
   background-color: var(--bg);
@@ -157,11 +169,12 @@ h4 {
   color: var(--normal-text);
   font-size: var(--font-size-4);
   transition: transform var(--duration) var(--eout-back), box-shadow var(--duration) var(--eout-back);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transform: translateY(0) scale(1);
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 .bottom-nav-item::before {
   content: '';
@@ -187,7 +200,7 @@ h4 {
 }
 .bottom-nav-item:hover {
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 .bottom-nav-item:hover::before { left: 100%; }
 .bottom-nav-item:hover p { transform: scale(1.1); }
@@ -229,26 +242,26 @@ main {
   background-size: 30px 30px;
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  color: var(--normal);
+  color: var(--normal-text);
   box-sizing: border-box;      /* 让 padding 计入高度，避免溢出 */
 }
 
 /* 页面中间的内容容器 */
 .body {
   display: flex;
-  justify-content: flex-end; /* 水平靠右 */
-  align-items: flex-end; /* 垂直靠下 */
-  height: 88vh;
+  height: calc(100vh - 5rem);
   width: 100%;
   padding: 0.5rem;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 /* 按钮容器 */
 .button-container {
-  margin-top: 2rem;
-  width: 45%;
+  width: 300px;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+  align-items: stretch;
   gap: 5px;
 }
 .button-row {
@@ -265,8 +278,84 @@ main {
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  align-items: stretch;
   gap: 1rem;
 }
+/* 分隔线 */
+.bottom-divider {
+  height: 2rem;
+  width: 2px;
+  background-color: var(--unimportant);
+  border-radius: 1px;
+  align-self: center; /* 垂直方向居中 */
+}
+/* 滚动容器 */
+.scroll-wrapper {
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+  padding: 14px;
+  margin: -14px;
+}
+/* 滚动内容 */
+.scroll-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  will-change: transform;
+}
+/* 滚动内容容器 */
+.scroll-outer {
+  flex: 1;
+  min-width: 0;
+  background-color: var(--normal);
+  border-radius: var(--border-radius);
+  overflow-x: clip;
+  overflow-y: visible;
+  padding: 2px;
+}
+
+
+
+/* 版本信息容器 */
+.version-container {
+  padding: var(--padding) 1rem;
+  position: fixed;
+  left: 1rem;
+  bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  text-shadow: 0 0px 6px rgba(0, 0, 0, 0.5);
+  border-radius: var(--border-radius);
+  border: 2px solid transparent;
+  transition: transform var(--duration) var(--in-out), background-color var(--duration) var(--in-out), border-color var(--duration) var(--in-out);
+}
+/* 没有什么意义的效果 */
+.version-container:hover {
+  background-color: var(--high-light-bg);
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+.version-container:active {
+    transform: scale(0.95); /* 按下时缩小到 95% */
+}
+/* 版本号 */
+.version-number {
+  font-size: var(--font-size-4);
+}
+/* 版本信息 */
+.version {
+  font-size: var(--font-size-1);
+  color: var(--normal-text);
+}
+
+
+
+
+
+
+
 /* 某种意义上的语法糖 */
 .w-100 { width: 100%; }
 .h-100 { height: 100%; }
