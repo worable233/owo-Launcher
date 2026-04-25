@@ -53,6 +53,10 @@
   box-sizing: border-box;
   user-select: none;
 }
+@font-face {
+  font-family: 'Segoe Fluent Icons';
+  src: local('Segoe Fluent Icons');
+}
 h1 {
   font-size: var(--font-size-1);
 }
@@ -114,24 +118,54 @@ h4 {
 /* 标题样式 */
 .head {
   position: relative; /* 相对定位，用于标题的绝对定位 */
-  padding: var(--padding);
   display: flex;
   align-items: center;
 }
-.title {
-  margin-left: 0.8rem;
+.titlebar-left {
+  margin-left: 0.7rem;
   display: inline-block;
   filter: url(#text-sticker-stroke) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
   transform: scale(1);
   transition: transform var(--duration)  var(--in-out);
   color: var(--normal-text);
 }
-.title:hover {
+.titlebar-left:hover {
   transform: scale(1.02);
 }
-.title h1 {
+.titlebar-left h1 {
   margin: 0;
   font-size: var(--font-size-3);
+}
+.titlebar-center {
+  flex: 1;
+  width: 100%;
+}
+.titlebar-right {
+  display: inline-block;
+}
+.titlebar-button {
+  background: transparent;
+  border: none;
+  color: var(--normal-text);
+  cursor: pointer;
+  font-size: 12px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  transition: all 0.2s;
+  font-family: 'Segoe Fluent Icons';
+}
+.titlebar-button:hover {
+  color: var(--primary);
+  background-color: var(--high-light-bg);
+}
+.titlebar-button:active {
+  transform: scale(0.95);
+}
+.titlebar-button-close:hover {
+  color: var(--bg);
+  background-color: red;
 }
 /* 头像样式 */
 /* .avatar {

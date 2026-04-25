@@ -1,11 +1,32 @@
 <script setup lang="ts">
+import { getCurrentWindow } from '@tauri-apps/api/window';
+
+// 获取当前窗口实例
+const appWindow = getCurrentWindow();
+
+// 窗口控制方法
+const minimizeWindow = () => appWindow.minimize();
+const toggleMaximize = () => appWindow.toggleMaximize();
+const closeWindow = () => appWindow.close();
+
+// 5⃣️ 防止拖拽区域内的按钮被当作拖拽区域，导致按钮点击失效
+const handleButtonMouseDown = (e: MouseEvent) => {
+  e.stopPropagation();
+};
 </script>
 
 <template>
-    <div class="head">
-        <div class="title">
+    <div class="head" data-tauri-drag-region>
+        <div class="titlebar-left">
             <p>owo-Launcher</p>
         </div>
+        <div class="titlebar-center"></div>
+        <!-- titlebar -->
+        <div class="titlebar-right">
+        <button @click="minimizeWindow" class="titlebar-button" id="minimize">&#xE921;</button>
+        <button @click="toggleMaximize" class="titlebar-button" id="maximize">&#xE922;</button>
+        <button @click="closeWindow" class="titlebar-button titlebar-button-close" id="close">&#xE8BB;</button>
+    </div>
     </div>
 <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
   <defs>
