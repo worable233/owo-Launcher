@@ -1,21 +1,7 @@
-/* 主题相关的变量 */
-:root {
-    /* >浅色主题颜色 */
+  /* 主题相关的变量 */
+  :root {
+    /* >主题颜色 */
     --primary: rgb(17, 112, 207);
-    /* >深色主题颜色 */
-    --primary-dark: color-mix(in srgb, var(--primary) 10%, #000000 90%);
-    /* >背景颜色 */
-    --bg: color-mix(in srgb, var(--primary) 1%, #f7f7f7 99%);
-    /* >边框颜色 */
-    --border: color-mix(in srgb, var(--primary) 1%, #ffffff 99%);
-    /* 高亮背景颜色 */
-    --high-light-bg: color-mix(in srgb, var(--primary) 20%, var(--bg) 100%);
-    /* >普通边框颜色 */
-    --normal: color-mix(in srgb, var(--primary) 1%, #E8E8ED 99%);   
-    /* >普通文本颜色 */
-    --normal-text: color-mix(in srgb, var(--primary) 1%, #1D1D1F 99%);
-    /* 不重要颜色 */
-    --unimportant: #adadad;
     /* >主题圆角 */
     --border-radius: 4px;
     /* >正文字体大小 */
@@ -30,8 +16,54 @@
     --font-size-4: 0.8rem;
     --padding: 2px;
     --margin: 0.5rem;
+  }
+[data-theme='light'] {
+    /* >背景颜色 */
+    --bg: color-mix(in srgb, var(--primary) 1%, #f7f7f7 99%);
+    --bg-dot: #c9c9c9;
+    /* >边框颜色 */
+    --border: color-mix(in srgb, var(--primary) 1%, #ffffff 99%);
+    /* 高亮背景颜色 */
+    --high-light-bg: color-mix(in srgb, var(--primary) 20%, var(--bg) 100%);
+    /* >普通边框颜色 */
+    --normal: color-mix(in srgb, var(--primary) 1%, #E8E8ED 99%);   
+    /* >普通文本颜色 */
+    --normal-text: color-mix(in srgb, var(--primary) 1%, #1D1D1F 99%);
+    /* 不重要颜色 */
+    --unimportant: #adadad;
+    /* 卡片背景色 */
+    --card-bg: #adadad;
+    /* 阴影颜色 */
+    --shadow-text: 0 0px 6px rgba(0, 0, 0, 0.5);
+    --shadow-small: 0px 0px 2px 6px rgba(0, 0, 0, .4);
+    --shadow-medium: 0px 4px 16px 0px rgba(0, 0, 0, .5);
+    --shadow-combined: 0px 4px 16px 0px rgba(0, 0, 0, .5), 0px 0px 8px 0px rgba(0, 0, 0, .4);
 }
-
+/* 深色模式 */
+[data-theme='dark'] {
+/* @media (prefers-color-scheme: dark) { */
+  /* 主题相关的变量 */
+    /* >背景颜色 */
+    --bg: color-mix(in srgb, var(--primary) 1%, #2c2c2e 99%);
+    --bg-dot: rgb(26, 26, 28);
+    /* >边框颜色 */
+    --border: color-mix(in srgb, var(--primary) 1%, #ffffff 99%);
+    /* 高亮背景颜色 */
+    --high-light-bg: color-mix(in srgb, var(--primary) 20%, var(--bg) 100%);
+    /* >普通边框颜色 */
+    --normal: color-mix(in srgb, var(--primary) 1%, #2C2C2E 99%);   
+    /* >普通文本颜色 */
+    --normal-text: color-mix(in srgb, var(--primary) 1%, #dddddd 99%);
+    /* 不重要颜色 */
+    --unimportant: #D1D1D6;
+    /* 卡片背景色 */
+    --card-bg: rgb(25, 25, 27);
+    /* 阴影颜色 */
+    --shadow-text: 0 0px 6px rgba(0, 0, 0, 0.01);
+    --shadow-small: 0px 0px 6px 0px rgba(0, 0, 0, 0.01);
+    --shadow-medium: 0 4px 12px 0 rgba(255, 255, 255, 0.01);
+    --shadow-combined: 0px 4px 12px 0px rgba(255, 255, 255, 0.05), 0px 0px 4px 0px rgba(255, 255, 255, 0.1);
+}
 /* 动画相关的变量 */
 :root {
     /* 动画时长 */
@@ -69,7 +101,10 @@ h3 {
 h4 {
   font-size: var(--font-size-4);
 }
+/* 菜单样式 */
+.menu {
 
+}
 /* 按钮样式 */
 .button {
     margin: 0 auto;
@@ -124,7 +159,7 @@ h4 {
 .titlebar-left {
   margin-left: 0.7rem;
   display: inline-block;
-  filter: url(#text-sticker-stroke) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+  filter: url(#text-sticker-stroke) drop-shadow(var(--shadow-small));
   transform: scale(1);
   transition: transform var(--duration)  var(--in-out);
   color: var(--normal-text);
@@ -160,9 +195,6 @@ h4 {
   color: var(--primary);
   background-color: var(--high-light-bg);
 }
-.titlebar-button:active {
-  transform: scale(0.95);
-}
 .titlebar-button-close:hover {
   color: var(--bg);
   background-color: red;
@@ -182,7 +214,8 @@ h4 {
 } */
 
 .bottom-nav {
-  background-color: var(--normal);
+  background-color: var(--card-bg);
+  
   border-radius: var(--border-radius);
   padding: var(--padding);
   display: flex;
@@ -203,7 +236,7 @@ h4 {
   color: var(--normal-text);
   font-size: var(--font-size-4);
   transition: transform var(--duration) var(--eout-back), box-shadow var(--duration) var(--eout-back);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-medium);
   transform: translateY(0) scale(1);
   cursor: pointer;
   position: relative;
@@ -223,7 +256,7 @@ h4 {
 .bottom-nav-item p {
   color: var(--normal-text);
   text-align: center;
-  text-shadow: 0 0px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: var(--shadow-small);
   margin: 4px;
   margin-left: 7px;
   white-space: nowrap;
@@ -234,7 +267,7 @@ h4 {
 }
 .bottom-nav-item:hover {
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-small);
 }
 .bottom-nav-item:hover::before { left: 100%; }
 .bottom-nav-item:hover p { transform: scale(1.1); }
@@ -260,7 +293,7 @@ h4 {
   border: 2px solid var(--normal);
   width: 30px;
   height: 30px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-small);
   transition: transform var(--animation-time) var(--easy), border-color var(--animation-time) var(--easy);
 }
 
@@ -272,7 +305,7 @@ h4 {
 main {
   min-height: 100vh;           /* 撑满视口高度 */
   background-color: var(--bg);
-  background-image: radial-gradient(circle at 50% 50%, #c9c9c9 2px, transparent 2px);
+  background-image: radial-gradient(circle at 50% 50%, var(--bg-dot) 2px, transparent 2px);
   background-size: 30px 30px;
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -343,7 +376,7 @@ main {
 .scroll-outer {
   flex: 1;
   min-width: 0;
-  background-color: var(--normal);
+  background-color: var(--card-bg);
   border-radius: var(--border-radius);
   overflow-x: clip;
   overflow-y: visible;
@@ -360,7 +393,7 @@ main {
   bottom: 4rem;
   display: flex;
   flex-direction: column;
-  text-shadow: 0 0px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: var(--shadow-small);
   border-radius: var(--border-radius);
   border: 2px solid transparent;
   transition: transform var(--duration) var(--in-out), background-color var(--duration) var(--in-out), border-color var(--duration) var(--in-out);

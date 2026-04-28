@@ -32,8 +32,6 @@ const scrollContainer = ref<HTMLElement | null>(null);
 let lenis: Lenis | null = null;
 let rafId: number | null = null;
 
-
-
 onMounted(() => {
   setTimeout(() => {
     if (!scrollContainer.value) return;
@@ -110,11 +108,5 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
-
-
-@media (prefers-color-scheme: dark) {
-  /* Dark mode styles */
-}
 
 </style>
